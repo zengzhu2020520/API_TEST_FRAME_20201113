@@ -24,19 +24,6 @@ class ExcelUtils:
     def __get_merged_cell_value(self):
         return self.sheet.merged_cells
 
-    def is_merged(self, cell_row, cell_col):
-        is_cell = 0
-        for (s_row, e_row, s_col, e_col) in self.__get_merged_cell_value():
-            if s_row <= cell_row < e_row:
-                if s_col <= cell_col < e_col:
-                    is_cell = [s_row, e_row, s_col, e_col]
-                    break
-                else:
-                    is_cell = 0
-            else:
-                is_cell = 0
-        return is_cell
-
     def get_singe_cell_value(self, cell_row, cell_col):
         cell_value = None
         for (s_row, e_row, s_col, e_col) in self.__get_merged_cell_value():
